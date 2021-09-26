@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menuToggle" onclick="ToggleMenu()"></div>
+    <div class="navigation">
+        <div class="navArea">
+            <ul>
+                <li>
+                    <a href="#" class="menu-item">Home</a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item">Album</a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item">Services</a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item">Partfolio</a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item">Team</a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="imgArea">
+            <img src="image/img1.jpg" id="slide" alt="image-menu">
+        </div>
+    </div>  
+
+    <script>
+        function ToggleMenu(){
+            const menuToggle = document.querySelector('.menuToggle');
+            const navigation = document.querySelector('.navigation');
+            menuToggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+
+        }
+
+        function changeImage(anything){
+            document.getElementById('slide').src = anything;
+        }
+
+        function noImage(){
+            document.getElementById('slide').src = 'image/black.jpg'; 
+        }
+
+        const menuItems = document.getElementsByClassName('menu-item');
+        for(let i = 0; i < menuItems.length; i++){
+            menuItems[i].onmouseout = () => {
+                document.getElementById('slide').src = 'image/black.jpg'
+            }
+            menuItems[i].onmouseenter = () => {
+                document.getElementById('slide').src = `image/img${i+1}.jpg`
+            }
+        }
+
+    </script>
+</body>
+</html>

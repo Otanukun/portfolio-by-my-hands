@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Robot</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+    <div class="demo">
+        <model-viewer 
+        id="model" 
+        src="RobotExpressive.glb" 
+        auto-rotate
+        camera-controls
+        animation-name="Dance"
+        autoplay
+        skybox-image="stadium_01_1k.hdr"
+        >
+        </model-viewer>
+        <div class="btn-container">
+            <button>Idle</button>
+            <button>Dance</button>
+            <button>Running</button>
+            <button>No</button>
+            <button>Death</button>
+            <button>Jump</button>
+            <button>Punch</button>
+            <button>Sitting</button>
+            <button>Standing</button>
+            <button>ThumbsUp</button>
+            <button>Walking</button>
+            <button>WalkJump</button>
+            <button>Wave</button>
+            <button>Yes</button>
+        </div>
+        <button class="hideBtn">Hide</button>
+    </div>
+    <script>
+        const highBtn = document.querySelector('.hideBtn');
+        highBtn.onclick = () => {
+            document
+                .querySelector('.btn-container')
+                .classList
+                .toggle('hide');
+
+            if(hideBtn.innerHTML == 'Hide') {
+               hideBtn.innerHTML = 'Show';
+            } else {
+                hideBtn.innerHTML = 'Hide';
+            }
+        }
+    
+        const modelViewer = document.querySelector('#model');
+        //3
+        const animBtn = document.querySelectorAll('.btn-container button')
+        animBtn.forEach(btn => {
+            btn.onclick = () => {
+                modelViewer.animationName = btn.innerHTML; 
+            }
+        });
+
+
+        function Anim(e) {
+            modelViewer
+        }
+
+
+    </script>
+
+</body>
+</html>
